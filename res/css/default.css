@@ -1,0 +1,221 @@
+/* =============================================================================
+      Includes
+   ========================================================================== */
+
+/*! normalize.css v3.0.2 | MIT License | git.io/normalize */img,legend{border:0}legend,td,th{padding:0}html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background-color:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,optgroup,strong{font-weight:700}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}pre,textarea{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0}input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{height:auto}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}table{border-collapse:collapse;border-spacing:0}
+
+html{box-sizing:border-box;}*,*:before,*:after{box-sizing:inherit;}
+
+/* Webfont: LatoLatin-Light */@font-face {
+    font-family: 'LatoLatinWebLight';
+    src: url('../fonts/LatoLatin-Light.woff2') format('woff2'), /* Modern Browsers */
+         url('../fonts/LatoLatin-Light.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/LatoLatin-Light.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: LatoLatin-Regular */@font-face {
+    font-family: 'LatoLatinWeb';
+    src: url('../fonts/LatoLatin-Regular.woff2') format('woff2'), /* Modern Browsers */
+         url('../fonts/LatoLatin-Regular.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/LatoLatin-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* =============================================================================
+      General
+   ========================================================================== */
+
+body {
+  font-family: 'LatoLatinWeb', sans-serif;
+  color: #dcdadc;
+  background-color: #1c2126;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  transition: color 200ms ease-in-out;
+}
+
+a:hover {
+  color: #2f7eb7;
+}
+
+.page-wrapper {
+  min-width: 320px;
+  max-width: 90%;
+  padding: 10px 6px;
+  margin: 0 auto;
+}
+
+.lb-caption > a {
+  text-decoration: underline;
+  font-weight: normal;
+  color: #2f7eb7;
+}
+
+/* =============================================================================
+    Header
+  =========================================================================== */
+
+.gallery-title {
+  padding: 0 0 20px 0;
+  margin: 80px 0 20px 0;
+  border-bottom: 1px solid #dcdadc;
+}
+
+nav {
+  margin-bottom: 40px;
+}
+
+.breadcrumbs-list {
+  list-style-type: none;
+  margin: 0 0 50px 0;
+  padding: 0 0 0 0;
+}
+
+.breadcrumbs-list > li {
+  display: inline-block;
+  padding-bottom: 5px;
+}
+.breadcrumbs-list > li:not(:last-child) {
+  margin-right: 6px;
+}
+.breadcrumbs-list > .separator {
+  padding: 5px 8px;
+}
+
+.breadcrumbs-list > li > a {
+  display: block;
+  min-width: 50px;
+  padding: 5px 18px;
+  padding: 5px 14px;
+  border: 1px solid #4c6186;
+
+  text-align: center;
+  transition: background-color 200ms ease-in-out;
+}
+
+.breadcrumbs-list > li > .current-page,
+.breadcrumbs-list > li > a:hover {
+  color: white;
+  background-color: #2f7eb7;
+}
+
+/* =============================================================================
+    Downloads
+  =========================================================================== */
+
+.downloads-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 25px 0;
+}
+
+.downloads-list > li {
+  display: inline-block;
+}
+.downloads-list > li:not(:first-child) {
+  margin: 0 20px;
+  padding: 4px;
+}
+
+/* =============================================================================
+    Gallery
+  =========================================================================== */
+
+.gallery {
+  line-height: 0;
+}
+
+.gallery-tile {
+  position: relative;
+  display: inline-block;
+  border: 1px solid black;
+  margin: 0 4px 4px 0;
+  padding: 6px;
+
+  width: 132px;
+  height: 132px;
+
+  vertical-align: top;
+
+  transition: background-color 200ms ease-in-out;
+}
+
+.gallery-tile.folder-tile {
+  padding: 70px 6px 6px 6px;
+
+  font-family: 'LatoLatinWebLight';
+  font-weight: 100;
+  line-height: 1.6;
+  text-decoration: none;
+
+  color: white;
+  background-color: #1a4666;
+}
+.gallery-tile.folder-tile:hover {
+  background-color: #2f7eb7;
+}
+.gallery-tile.img-tile {
+  background-color: #39424d;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.gallery-tile.img-tile:hover {
+  background-color: #708196;
+}
+
+/*.gallery-tile:not(:hover) {
+  opacity: 0.8;
+}*/
+
+
+/* =============================================================================
+    Pages navigation
+  =========================================================================== */
+
+.page-nav {
+  list-style-type: none;
+  margin: 14px 0 50px 0;
+  padding: 12px 0 0 0;
+  border-top: 1px solid #dcdadc;
+}
+
+.page-nav > li {
+  display: inline-block;
+}
+.page-nav > li:not(:last-child) {
+  margin-right: 6px;
+}
+.page-nav > li > a {
+  display: block;
+  min-width: 50px;
+  padding: 5px 18px;
+  padding: 5px 14px;
+  border: 1px solid white;
+
+  text-align: center;
+  transition: background-color 200ms ease-in-out;
+}
+
+.page-nav > li > .current-page,
+.page-nav > li > a:hover {
+  color: white;
+  background-color: #2f7eb7;
+}
+
+/* =============================================================================
+    Mobile
+  =========================================================================== */
+
+@media screen and (max-width: 400px) {
+  .downloads-list {
+    display: none;
+  }
+}
