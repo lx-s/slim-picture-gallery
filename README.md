@@ -66,6 +66,7 @@ If SPG finds folder named "_hires", it'll look for images with the same name as 
             1.png
             2.jpg
             ...
+            hiking_pictures.zip
 ```
 
 ## Clearing the cache
