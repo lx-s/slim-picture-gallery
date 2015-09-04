@@ -1,0 +1,247 @@
+@charset "utf-8";
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,700);
+
+/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+img,legend{border:0}legend,td,th{padding:0}html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background-color:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,optgroup,strong{font-weight:700}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}pre,textarea{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0}input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{height:auto}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}table{border-collapse:collapse;border-spacing:0}
+
+html{box-sizing:border-box;}*,*:before,*:after{box-sizing:inherit;}
+
+/* =============================================================================
+      General
+ */
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #dcdadc;
+  background-color: #111;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  transition: color 200ms ease-in-out;
+}
+
+a:hover {
+  color: #2f7eb7;
+}
+
+.lb-caption > a {
+  text-decoration: underline;
+  font-weight: normal;
+  color: #2f7eb7;
+}
+
+
+/* =============================================================================
+      Header
+ */
+
+header {
+  padding: 80px 20px 20px 20px;
+  margin: 0 0 20px 0;
+
+  color: #fff;
+  background-color: #3F51B5;
+
+  box-shadow: 0px 14px 13px -12px rgba(0,0,0,0.7);
+}
+
+.gallery-title {
+  padding: 0 0 20px 0;
+  margin: 0px 0 20px 0;
+  border-bottom: 1px solid #dcdadc;
+}
+
+
+.breadcrumbs-list {
+  list-style-type: none;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+}
+
+.breadcrumbs-list > li {
+  display: inline-block;
+  padding-bottom: 5px;
+}
+.breadcrumbs-list > li:not(:last-child) {
+  margin-right: 6px;
+}
+.breadcrumbs-list > .separator {
+  padding: 5px 8px;
+  font-size: 180%;
+}
+
+.breadcrumbs-list > li > a {
+  display: block;
+  min-width: 50px;
+  padding: 5px 18px;
+  padding: 5px 14px;
+  border: 1px solid #C5CAE9;
+
+  text-align: center;
+  transition: background-color 200ms ease-in-out;
+}
+
+.breadcrumbs-list > li > .current-page,
+.breadcrumbs-list > li > a:hover {
+  color: black;
+  background-color: #C5CAE9;
+}
+.breadcrumbs-list > li:first-child > a {
+  color: transparent;
+  background-image: url(img/ic_home_white_24dp_2x.png);
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.breadcrumbs-list > li:first-child > a:hover {
+  background-image: url(img/ic_home_black_24dp_2x.png);
+}
+
+/* =============================================================================
+    Content
+ */
+
+.content {
+  min-width: 320px;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+/* -----------------------------------------------------------------------------
+    Downloads
+ */
+
+.downloads-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 25px 0;
+}
+
+.downloads-list > li {
+  display: inline-block;
+}
+.downloads-list > li:not(:first-child) {
+  margin: 0 20px;
+  padding: 4px;
+}
+
+/* -----------------------------------------------------------------------------
+    Gallery
+ */
+
+.gallery {
+  line-height: 0;
+  text-align: center;
+}
+
+.gallery-tile {
+  position: relative;
+  display: inline-block;
+  margin: 0 6px 6px 0;
+
+  width:  150px;
+  height: 150px;
+
+  text-align: left;
+
+  transition: opacity 200ms ease-in-out;
+  background-size: cover;
+}
+.gallery-tile:not(:hover) {
+  opacity: 0.7;
+}
+
+.gallery-tile.folder-tile {
+  padding: 70px 6px 6px 6px;
+
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  line-height: 1.6;
+  text-decoration: none;
+
+  color: white;
+  background-color: #424242;
+}
+
+.gallery-tile.folder-tile:hover {
+  background-color: #3F51B5;
+}
+.folder-tile > span {
+  position: absolute;
+  display: block;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  padding: 6px;
+  overflow: hidden;
+  background-color: rgba(48, 48, 48, 0.8);
+
+}
+.gallery-tile.img-tile {
+  background-color: #424242;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.gallery-tile.img-tile:hover {
+  background-color: #708196;
+}
+
+
+/* =============================================================================
+    Pages navigation
+ */
+
+footer {
+  padding: 20px 20px 80px 20px;
+}
+
+/* -----------------------------------------------------------------------------
+    Pages navigation
+ */
+
+.page-nav {
+  list-style-type: none;
+  margin: 14px 0 50px 0;
+  padding: 12px 0 0 0;
+  border-top: 1px solid #C5CAE9;
+}
+
+.page-nav > li {
+  display: inline-block;
+}
+.page-nav > li:not(:last-child) {
+  margin-right: 6px;
+}
+.page-nav > li > a {
+  display: block;
+  min-width: 50px;
+  padding: 5px 18px;
+  padding: 5px 14px;
+  border: 1px solid #C5CAE9;
+
+  text-align: center;
+  transition: background-color 200ms ease-in-out;
+}
+
+.page-nav > li > .current-page,
+.page-nav > li > a:hover {
+  color: black;
+  background-color: #C5CAE9;
+}
+
+/* =============================================================================
+    Mobile
+ */
+
+@media screen and (max-width: 400px) {
+  .gallery-tile {
+    width: 134px;
+    height: 134px;
+  }
+  .downloads-list {
+    display: none;
+  }
+}

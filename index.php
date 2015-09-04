@@ -100,12 +100,13 @@
         echo '<ul class="breadcrumbs-list">';
         foreach ($breadcrumbs as $bc) {
           echo '<li><a href="?g='.rawurlencode($bc['link']).'">'.$bc['name'].'</a></li>';
-          echo '<li class="separator">/</li>';
+          echo '<li class="separator">&rsaquo;</li>';
         }
         echo '</ul>';
       }
     ?></nav>
   </header>
+  <div class="content" role="main">
   <?php
     $folders   = array();
     $images    = array();
@@ -128,7 +129,7 @@
       echo '<div class="gallery">';
 
       foreach ($folders as $folder) {
-        echo '<a class="gallery-tile folder-tile" href="?g='.rawurlencode($folder['link']).'">'.$folder['name'].'</a>';
+        echo '<a class="gallery-tile folder-tile" href="?g='.rawurlencode($folder['link']).'"><span>'.$folder['name'].'</span></a>';
       }
 
       $imageCount = count($images);
@@ -147,7 +148,10 @@
       }
 
       echo '</div>';
-
+?>
+  </div>
+  <footer>
+  <?php
       if ($imageCount > MAX_IMAGES_PER_PAGE) {
         echo '<ul class="page-nav">';
         $maxPages = $imageCount / MAX_IMAGES_PER_PAGE + 1;
@@ -161,7 +165,9 @@
         echo '</ul>';
       }
     }
-?>
+  ?>
+  </footer>
+</div>
 <script src="assets/js/jquery-2.1.4.min.js"></script>
 <script src="assets/js/lightbox.min.js"></script>
 <?php
@@ -170,6 +176,5 @@
     echo '<script src="'.$themeScript.'"></script>';
   }
 ?>
-</div>
 </body>
 </html>

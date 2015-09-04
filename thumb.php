@@ -39,7 +39,7 @@
       http_error_exit(HTTP_ERROR_NOT_FOUND);
     } else {
       $img = new imagick($imgPath);
-      $img->cropThumbnailImage( 120, 120 );
+      $img->cropThumbnailImage( 150, 150 );
       if (USE_THUMB_CACHE) {
         if (!file_exists(THUMB_DIR.$cacheDir)) {
           if (mkdir(THUMB_DIR.$cacheDir) === FALSE) {
