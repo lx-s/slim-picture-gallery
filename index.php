@@ -1,6 +1,5 @@
 <?php
-  require('inc/config.php');
-  require('inc/functions.php');
+  require('includes/config.php');
 
   // ===========================================================================
   //  Prepare parameters
@@ -87,8 +86,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link  rel="stylesheet" type="text/css" href="res/css/lightbox.css" media="screen">
-  <link  rel="stylesheet" type="text/css" href="res/css/default.css" media="screen">
+  <link  rel="stylesheet" type="text/css" href="assets/css/lightbox.css" media="screen">
+  <link  rel="stylesheet" type="text/css" href="themes/<?php echo THEME; ?>/style.css" media="screen">
   <title><?php echo $lang['page_title']; ?> <?php if ($galleryName) { echo '&bdquo;'.$galleryName.'&rdquo;'; } ?></title>
 </head>
 <body>
@@ -163,8 +162,14 @@
       }
     }
 ?>
-<script src="res/js/jquery-2.1.4.min.js"></script>
-<script src="res/js/lightbox.min.js"></script>
+<script src="assets/js/jquery-2.1.4.min.js"></script>
+<script src="assets/js/lightbox.min.js"></script>
+<?php
+  $themeScript = 'themes/'.THEME.'/main.js';
+  if (file_exists($themeScript)) {
+    echo '<script src="'.$themeScript.'"></script>';
+  }
+?>
 </div>
 </body>
 </html>

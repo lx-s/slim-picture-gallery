@@ -1,6 +1,15 @@
 <?php
-  require('inc/config.php');
-  require('inc/functions.php');
+  require('includes/config.php');
+
+  define('HTTP_ERROR_BAD_REQUEST', 400);
+  define('HTTP_ERROR_NOT_FOUND', 404);
+  define('HTTP_ERROR_INTERNAL_SERVER_ERROR', 500);
+
+  function http_error_exit($httpCode)
+  {
+    http_response_code($httpCode);
+    exit;
+  }
 
   function sanitize_image_path($imgPath)
   {

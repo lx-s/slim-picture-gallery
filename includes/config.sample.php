@@ -13,6 +13,7 @@
                                       // It prevents automated "unauthorized" purging of your thumbnail cache
 
   // Display
+  define('THEME', 'default');          // Which theme in /themes/default to use
   define('LANGUAGE', 'de_de');         // see language files in inc/lang
   define('MAX_IMAGES_PER_PAGE', 100);  // how many pictures per page?
 
