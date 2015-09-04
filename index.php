@@ -19,6 +19,8 @@
 
   function get_gallery_content($galleryId, &$folders, &$images, &$downloads)
   {
+    global $lang;
+
     $galleryPath = IMAGES_DIR.$galleryId.'/';
 
     // Get all files in current gallery
@@ -40,7 +42,13 @@
               }
               $images[] = array('path' => $filePath, 'hqPath' => $hqPath);
             } else if ($ext == 'zip') {
-              $downloads[] = array('name' => $file, 'path' => $filePath);
+              $fileSize = @filesize($filePath);
+              if ($fileSize === FALSE) {
+                $fileSize = 0;
+              } else {
+                $fileSize = round($fileSize / (1024 * 1024), 2);
+              }
+              $downloads[] = array('name' => $file, 'path' => $filePath, 'size' => $fileSize);
             }
           }
         }
@@ -54,7 +62,7 @@
     // If in sub-folder, then add upward navigation
     if (strlen($galleryId) > 0) {
       $backLink = substr($galleryId, 0, strrpos($galleryId, '/'));
-      $backFolder = array('name' => '↑ Zurück', 'link' => $backLink);
+      $backFolder = array('name' => $lang['navigate_back'], 'link' => $backLink);
       array_unshift($folders, $backFolder);
     }
 
@@ -110,7 +118,11 @@
       if (!empty($downloads)) {
         echo '<ul class="downloads-list"><li>'.$lang['download_zip'].': </li>';
         foreach ($downloads as $dl) {
-          echo '<li>&raquo; <a href="'.$dl['path'].'">'.$dl['name'].'</a></li>';
+          echo '<li>&raquo; <a href="'.$dl['path'].'">'.$dl['name'].'</a>';
+          if ($dl['size'] > 0) {
+            echo ' <small>('.strval($dl['size']).' MB)</small>';
+          }
+          echo '</li>';
         }
         echo '</ul>';
       }
