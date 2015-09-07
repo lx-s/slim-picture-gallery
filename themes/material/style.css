@@ -71,6 +71,12 @@ header {
   padding: 5px 8px;
   font-size: 180%;
 }
+.breadcrumbs-list > .separator:after {
+  content: '›';
+}
+.breadcrumbs-list > .separator:last-child {
+  display: none;
+}
 
 .breadcrumbs-list > li > a {
   display: block;

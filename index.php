@@ -100,7 +100,7 @@
         echo '<ul class="breadcrumbs-list">';
         foreach ($breadcrumbs as $bc) {
           echo '<li><a href="?g='.rawurlencode($bc['link']).'">'.$bc['name'].'</a></li>';
-          echo '<li class="separator">&rsaquo;</li>';
+          echo '<li class="separator"></li>';
         }
         echo '</ul>';
       }
