@@ -1,4 +1,7 @@
 <?php
+  define('HTML_LANG', 'de');
+  define('HTML_DIR',  'ltr');
+
   $lang = array(
     'page_title'   => 'Fotogalerie',
     'download_zip' => 'Herunterladen',

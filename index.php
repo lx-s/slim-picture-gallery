@@ -82,7 +82,7 @@
   }
 
 ?><!doctype html>
-<html lang="de" dir="ltr">
+<html lang="<?php echo HTML_LANG; ?>" dir="<?php echo HTML_DIR; ?>">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">

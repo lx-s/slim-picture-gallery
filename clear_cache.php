@@ -1,13 +1,13 @@
-<!doctype html>
-<html lang="de" dir="ltr">
+<?php
+  require('includes/config.php');
+?><!doctype html>
+<html lang="<?php echo HTML_LANG; ?>" dir="<?php echo HTML_DIR; ?>">
 <head>
   <meta charset="utf-8">
   <title>Clear Cache</title>
 </head>
 <body>
 <?php
-  require('includes/config.php');
-
   if (CLEAR_THUMB_SECRET == '' || (isset($_GET['s']) && CLEAR_THUMB_SECRET == $_GET['s'])) {
     function recursiveDelete($str) {
         if (is_file($str) && basename($str) != 'index.html') {
