@@ -12,18 +12,18 @@ html{box-sizing:border-box;}*,*:before,*:after{box-sizing:inherit;}
 
 body {
   font-family: 'Roboto', sans-serif;
-  color: #dcdadc;
-  background-color: #111;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #fafafa;
 }
 
 a {
-  color: white;
+  color: #ff4081;
   text-decoration: none;
   transition: color 200ms ease-in-out;
 }
 
 a:hover {
-  color: #2f7eb7;
+  color: #F50057;
 }
 
 .lb-caption > a {
@@ -44,7 +44,7 @@ header {
   color: #fff;
   background-color: #3F51B5;
 
-  box-shadow: 0px 14px 13px -12px rgba(0,0,0,0.7);
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.26);
 }
 
 .gallery-title {
@@ -58,6 +58,8 @@ header {
   list-style-type: none;
   margin: 0 0 0 0;
   padding: 0 0 0 0;
+
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .breadcrumbs-list > li {
@@ -83,16 +85,16 @@ header {
   min-width: 50px;
   padding: 5px 18px;
   padding: 5px 14px;
-  border: 1px solid #C5CAE9;
+  border: 1px solid #fff;
 
+  color: #fff;
   text-align: center;
   transition: background-color 200ms ease-in-out;
 }
 
 .breadcrumbs-list > li > .current-page,
 .breadcrumbs-list > li > a:hover {
-  color: black;
-  background-color: #C5CAE9;
+  background-color: #ff4081;
 }
 .breadcrumbs-list > li:first-child > a {
   color: transparent;
@@ -100,9 +102,6 @@ header {
   background-position: center center;
   background-size: contain;
   background-repeat: no-repeat;
-}
-.breadcrumbs-list > li:first-child > a:hover {
-  background-image: url(img/ic_home_black_24dp_2x.png);
 }
 
 /* =============================================================================
@@ -144,16 +143,16 @@ header {
 .gallery-tile {
   position: relative;
   display: inline-block;
-  margin: 0 6px 6px 0;
+  margin: 0 7px 7px 0;
 
   width:  150px;
   height: 150px;
 
-  transition: opacity 200ms ease-in-out;
   background-size: cover;
+  box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.4);
 }
-.gallery-tile:not(:hover) {
-  opacity: 0.7;
+.gallery-tile:hover {
+    outline: 2px solid #ff4081;
 }
 
 .gallery-tile.folder-tile {
@@ -165,7 +164,7 @@ header {
   text-decoration: none;
 
   color: white;
-  background-color: #424242;
+  background-color: #fff;
 }
 
 .gallery-tile.folder-tile:hover {
@@ -207,9 +206,9 @@ footer {
 
 .page-nav {
   list-style-type: none;
-  margin: 14px 0 50px 0;
+  margin: 0px 0 50px 0;
   padding: 12px 0 0 0;
-  border-top: 1px solid #C5CAE9;
+  border-top: 2px solid #d2d2d2;
 }
 
 .page-nav > li {
@@ -223,23 +222,25 @@ footer {
   min-width: 50px;
   padding: 5px 18px;
   padding: 5px 14px;
-  border: 1px solid #C5CAE9;
+  border: 1px solid #3F51B5;
 
   text-align: center;
+  color: #3F51B5;
   transition: background-color 200ms ease-in-out;
 }
 
 .page-nav > li > .current-page,
 .page-nav > li > a:hover {
-  color: black;
-  background-color: #C5CAE9;
+  color: #fff;
+  border: 1px solid #ff4081;
+  background-color: #ff4081;
 }
 
 /* =============================================================================
     Mobile
  */
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 600px) {
   .gallery-tile {
     width: 134px;
     height: 134px;
