@@ -26,15 +26,15 @@ SPG requires PHP 5.2+ and the ImageMagick image library to work properly. For mo
 ## Installation
 
 1. Extract or clone this repository into the desired folder on your webserver
-2. Copy ```inc/config.sample.php``` to ```inc/config.php```
+2. Copy ```includes/config.sample.php``` to ```includes/config.php```
 2. Make the ```gallery-images/.thumb_cache/``` folder writable by the webserver (either by changing the directory owner to your PHP user or ```chmod 777``` it, if your webhost doesn't allow changing the owner of directories).
-3. If you don't want to make the directory writeable or just don't want to use thumbnail caching, set ```USE_THUMB_CACHE``` to ```false``` in ```inc/config.php```.
+3. If you don't want to make the directory writeable or just don't want to use thumbnail caching, set ```USE_THUMB_CACHE``` to ```false``` in ```includes/config.php```.
 4. Create folders within the gallery-images folder and upload pictures.
 5. That's it!
 
 ### Configuration (optional)
 
-Open ```inc/config.php``` to change the directory of your picture (```IMAGES_DIR```) and thumbnail (```THUMB_DIR```) folder, as well as some display settings.
+Open ```includes/config.php``` to change the directory of your picture (```IMAGES_DIR```) and thumbnail (```THUMB_DIR```) folder, as well as some display settings.
 Keep in mind that the picture folder has to be publicly accessible, whereas the thumbnail folder can be placed anywhere outside of your accessible web root.
 
 ## Directory structure
@@ -75,5 +75,5 @@ Just delete the contents of ```gallery-images/.thumb-cache```.
 
 For automation via web cron, you can also use the provided script ```clear_cache.php``` to purge all images from the cache directory.
 
-It is recommended that you set a ```CLEAR_THUMB_SECRET``` in ```inc/config.php``` so that only ```clear_cache.php?s=your CLEAR_THUMB_SECRET``` will actually purge the cache directory.
+It is recommended that you set a ```CLEAR_THUMB_SECRET``` in ```includes/config.php``` so that only ```clear_cache.php?s=your CLEAR_THUMB_SECRET``` will actually purge the cache directory.
 
