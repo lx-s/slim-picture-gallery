@@ -133,7 +133,6 @@ header {
 
 .gallery {
   line-height: 0;
-  text-align: center;
 }
 
 .gallery-tile {
@@ -143,8 +142,6 @@ header {
 
   width:  150px;
   height: 150px;
-
-  text-align: left;
 
   transition: opacity 200ms ease-in-out;
   background-size: cover;
