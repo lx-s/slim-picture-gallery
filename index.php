@@ -20,7 +20,10 @@
   {
     global $lang;
 
-    $galleryPath = IMAGES_DIR.$galleryId.'/';
+    $galleryPath = IMAGES_DIR;
+    if ($galleryId != '') {
+      $galleryPath .= $galleryId.'/';
+    }
 
     // Get all files in current gallery
     if (($imgDirHandle = opendir($galleryPath)) === FALSE) {
@@ -31,7 +34,7 @@
           $filePath = $galleryPath.$file;
           if (is_dir($filePath)) {
             $linkGalleryId = ($galleryId != '') ? $galleryId.'/'.$file : $file;
-            $folders[] = array('name' => $file, 'link' => $linkGalleryId);
+            $folders[] = array('name' => $file, 'path' => $filePath, 'link' => $linkGalleryId);
           } else {
             $ext = strtolower(pathinfo($filePath, PATHINFO_EXTENSION));
             if ($ext  == 'jpg' || $ext == 'png' || $ext == 'gif') {
@@ -129,7 +132,8 @@
       echo '<div class="gallery">';
 
       foreach ($folders as $folder) {
-        echo '<a class="gallery-tile folder-tile" href="?g='.rawurlencode($folder['link']).'"><span>'.$folder['name'].'</span></a>';
+        $thumbNail = (!isset($folder['path'])) ? '' : ' style="background-image:url(thumb.php?f='.rawurlencode($folder['path']).')"';
+        echo '<a class="gallery-tile folder-tile"'.$thumbNail.' href="?g='.rawurlencode($folder['link']).'"><span>'.$folder['name'].'</span></a>';
       }
 
       $imageCount = count($images);
