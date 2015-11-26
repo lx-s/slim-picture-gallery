@@ -3,7 +3,7 @@
   // File system
   define('IMAGES_DIR', './gallery-images/'); // path to your pictures folder
 
-  define('THUMB_DIR', IMAGES_DIR.'.thumb_cache/'); // this path is used bei thumbs.php to generate thumbnails
+  define('THUMB_DIR', IMAGES_DIR.'.thumb_cache/'); // this path is used by thumbs.php to generate thumbnails
 
   define('THUMB_EXT', '.cacheImage'); // file extension of generated thumbnails
 
