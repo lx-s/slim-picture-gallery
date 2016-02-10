@@ -38,14 +38,14 @@
     echo $img;
   }
 
-  function create_image_thumb($imgPath)
+  function create_image_thumb($imgPath, $width, $height)
   {
     $img = new Imagick($imgPath);
-    $img->cropThumbnailImage(THUMB_WIDTH, THUMB_HEIGHT);
+    $img->cropThumbnailImage($width, $height);
     return $img;
   }
 
-  function create_mosaic_thumb($folderPath)
+  function create_mosaic_thumb($folderPath, $width, $height)
   {
     /*
        ---------------      Padding = 2px
@@ -61,7 +61,8 @@
       return false;
     } else {
       $images = array();
-      $thumbWH = THUMB_WIDTH/2 - MOSAIC_PADDING/2;
+      $thumbW =  $width/2 - MOSAIC_PADDING/2;
+      $thumbH = $height/2 - MOSAIC_PADDING/2;
       while (($file = readdir($imgDirHandle)) !== FALSE
              && count($images) <= 4) {
         if ($file[0] != '.') {
@@ -72,14 +73,14 @@
             $dirThumb = THUMB_DIR.$cacheDir.'/'.$cacheFile;
             if (file_exists($dirThumb)) {
               $img = new Imagick($dirThumb);
-              $img->cropThumbnailImage($thumbWH, $thumbWH);
+              $img->cropThumbnailImage($thumbW, $thumbH);
               $images[] = $img;
             }
           } else {
             $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
             if ($ext  == 'jpg' || $ext == 'png' || $ext == 'gif') {
               $img = new Imagick($folderPath.$file);
-              $img->cropThumbnailImage($thumbWH, $thumbWH);
+              $img->cropThumbnailImage($thumbW, $thumbH);
               $images[] = $img;
             }
           }
@@ -90,13 +91,13 @@
         return false;
       } else {
         $thumbImg = new Imagick();
-        $thumbImg->newImage(THUMB_WIDTH, THUMB_HEIGHT, 'white');
+        $thumbImg->newImage($width, $height, 'white');
         $thumbImg->setImageFormat('jpg');
         for ($i = 0; $i < count($images); ++$i) {
           $thumbImg->compositeImage($images[$i],
                                     Imagick::COMPOSITE_OVER,
-                                    ($i % 2)  ? (THUMB_WIDTH/2 + MOSAIC_PADDING / 2): 0,
-                                    ($i >= 2) ? (THUMB_HEIGHT/2 + MOSAIC_PADDING / 2) : 0);
+                                    ($i % 2)  ? ($width/2 + MOSAIC_PADDING / 2): 0,
+                                    ($i >= 2) ? ($height/2 + MOSAIC_PADDING / 2) : 0);
         }
         return $thumbImg;
       }
@@ -121,7 +122,12 @@
     http_error_exit(HTTP_ERROR_NOT_FOUND);
   }
 
-  $objHash   = sha1($objPath);
+  $thumbWidth  = isset($_GET['w']) ? (int)$_GET['w'] : THUMB_WIDTH;
+  $thumbHeight = isset($_GET['h']) ? (int)$_GET['h'] : THUMB_HEIGHT;
+
+  $objHashPath = $objPath.'?ft='.filemtime($objPath).'&w='.$thumbWidth.'&h='.$thumbHeight;
+  $objHash   = sha1($objHashPath);
+
   $cacheDir  = substr($objHash, 0, 2);
   $cacheFile = substr($objHash, 2, strlen($objHash)).THUMB_EXT;
   $thumbPath = (USE_THUMB_CACHE) ? THUMB_DIR.$cacheDir.'/'.$cacheFile : '';
@@ -132,9 +138,9 @@
   } else {
     $img = null;
     if ($mode == FILE_MODE) {
-      $img = create_image_thumb($objPath);
+      $img = create_image_thumb($objPath, $thumbWidth, $thumbHeight);
     } else { /* mode == FOLDER_MODE */
-      $img = create_mosaic_thumb($objPath.'/');
+      $img = create_mosaic_thumb($objPath.'/', $thumbWidth, $thumbHeight);
     }
     if ($img === FALSE) {
       http_error_exit(HTTP_ERROR_INTERNAL_SERVER_ERROR);
