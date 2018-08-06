@@ -8,13 +8,11 @@ SPG requires no database, supports JPEG, GIF and PNG, takes care of thumbnail cr
 ## Features
 
 * Simple installation
-* Simple design
+* Simple, responsive design
 * Auto generates thumbnails
 * Displays picture files in folders
 * English and German language translations
 * 6 translatable strings
-* Simple design that scales with screen size
-* No complicated setup
 * No database required
 * No administrator backend
 * No user management
